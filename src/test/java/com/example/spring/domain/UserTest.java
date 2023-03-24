@@ -2,6 +2,8 @@ package com.example.spring.domain;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class UserTest {
@@ -10,6 +12,15 @@ class UserTest {
         User user = new User();
         user.setEmail("martin@fastcampus.com");
         user.setName("martin");
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdateAt(LocalDateTime.now());
+
+        User user1 = new User(null, "martin", "martin@fastcampus.com", LocalDateTime.now(), LocalDateTime.now());
+        User user2 = new User("martin", "martin@fastcampus.com");
+        User user3 = User.builder()
+                        .name("martin")
+                        .email("martin@fastcampus.com")
+                        .build();
 
         System.out.println(">>> " + user);
         // => (문제) 위의 테스트 결과 값을 보면
@@ -22,6 +33,7 @@ class UserTest {
         //          getClass().getName() + "@" + Integer.toHexString(hashCode());
         //          암묵적으로 toString()이 실행되기 때문에 이와 같은 결과가 나옴.
 
-        // => (해결방안) User 클래스에서 toString()을 오버라이딩 하면 된다.
+
+
     }
 }
