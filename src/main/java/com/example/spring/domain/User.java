@@ -38,7 +38,7 @@ import java.time.LocalDateTime;
 // @Entity : DB 테이블에 대응하는 하나의 클래스.
 public class User {
     /* 필드: 이름, 이메일 */
-    @Id // @Id 애노테이션 : JPA 엔티티 "기본키(PK)"(객체의 식별자)로 사용할 필드에 적용
+    @Id             // @Id 애노테이션 : JPA 엔티티 "기본키(PK)"(객체의 식별자)로 사용할 필드에 적용
     @GeneratedValue // @GeneratedValue : 기본 키를 자동 생성해주는 어노테이션.
     private Long id;
 
